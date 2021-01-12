@@ -28,7 +28,8 @@ module.exports = {
       cleanOnceBeforeBuildPatterns: ['dist']
     }),
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: 'src/index.html',
+      publicPath: 'dist'
     }),
     /*new CopyWebpackPlugin(
       [
