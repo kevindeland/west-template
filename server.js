@@ -30,10 +30,17 @@ const io = socketIO(server)
 
 io.on('connection', socket => {
 
+  // 📥  📥 receiver 📥  📥  
   socket.on('new-client', (data, callback) => {
     console.log(data);
     callback('null');
   });
+
+  // 📥  📥 receiver 📥  📥  
+  socket.on('click-position', (data) => {
+    console.log(`Click: ${data.x} ${data.y}`);
+    console.log(JSON.stringify(data));
+  })
 
 })
 

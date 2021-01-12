@@ -4,6 +4,8 @@
 
 let socketMessageKeys = {
   NEW_PLAYER: 'new-client',
+
+  CLICK_POSITION: 'click-position'
 };
 
 export default socketMessageKeys;

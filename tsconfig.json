@@ -11,7 +11,7 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
-    "strictNullChecks": true,
+    "strictNullChecks": false,
     "lib": ["es2017", "dom"]
   },
   "exclude": ["node_modules", "dist", "server.js", "webpack.config.js"]
