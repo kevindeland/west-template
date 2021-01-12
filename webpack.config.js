@@ -4,6 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+// Try this?
+// https://stackoverflow.com/questions/31102035/how-can-i-use-webpack-with-express
+
 module.exports = {
   entry: './src/main.ts',
   mode: 'development',

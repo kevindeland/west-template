@@ -23,6 +23,21 @@ app.get('', (request, response) => {
 })
 
 
+//===== SOCKETS =====
+
+const socketIO = require('socket.io')
+const io = socketIO(server)
+
+io.on('connection', socket => {
+
+  socket.on('new-client', (data, callback) => {
+    console.log(data);
+    callback('null');
+  });
+
+})
+
+
 //----- LISTEN -----
 
 server.listen(PORT, () => {
