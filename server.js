@@ -28,11 +28,15 @@ app.get('', (request, response) => {
 const socketIO = require('socket.io')
 const io = socketIO(server)
 
+//---- Socket Manager ----
+const CanvasClickSocketManager = require('./server/CanvasClickSocketManager');
+const manager = new CanvasClickSocketManager();
+
 io.on('connection', socket => {
 
   // 📥  📥 receiver 📥  📥  
   socket.on('new-client', (data, callback) => {
-    console.log(data);
+    manager.addNewPlayer(`player${Math.floor(Math.random()*200)}`, socket)
     callback('null');
   });
 
@@ -40,8 +44,8 @@ io.on('connection', socket => {
   socket.on('click-position', (data) => {
     console.log(`Click: ${data.x} ${data.y}`);
     console.log(JSON.stringify(data));
+    manager.sendClickToClients(data);
   })
-
 })
 
 

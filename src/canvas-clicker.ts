@@ -1,9 +1,6 @@
 
 import Constants from './Constants';
-
-class Position {
-  constructor(public x: number, public y: number) {}
-}
+import {circle, Position} from './utils';
 
 export default class CanvasClicker {
 
@@ -12,19 +9,21 @@ export default class CanvasClicker {
   constructor(private readonly canvas: HTMLCanvasElement, private readonly socket: SocketIOClient.Socket) {
     this.ctx = this.canvas.getContext('2d');
 
-    // 🐭  🐭 MOUSE 🐭  🐭  
-    // 📤  📤 emitter 📤  📤  
-    // bind mouse clicks to a socket emit event
+    // 🐭  🐭 MOUSE click 🐭  🐭  
     this.canvas.addEventListener('click', e => {
-      console.log(e);
-      this.emitClick(new Position(10, 10));
+      this.emitClick(new Position(Math.random() * 300, Math.random() * 300));
     })
-    
-    //---- CONTINUE HERE -----
   }
 
   emitClick(p: Position) {
+    // 📤  📤 emitter: CLICK_POSITION
     this.socket.emit(Constants.CLICK_POSITION, p)
+  }
+
+  drawClick(p: Position) {
+    // 🖌️  🖌️  🖌️  CANVAS circle 🖌️  🖌️  🖌️  
+    this.ctx.fillStyle = 'green'
+    circle(this.ctx, p.x, p.y, 10)
   }
 
 }

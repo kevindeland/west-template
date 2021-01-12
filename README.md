@@ -1,8 +1,8 @@
 
 
 ### TODO Stack
-
 - Make Constants available to server.js (transform to ts)
+- Don't send client messages back to sending client (check id)
 
 
 ### Dev-Stack improvements:
