@@ -14,5 +14,5 @@
     "strictNullChecks": false,
     "lib": ["es2017", "dom"]
   },
-  "exclude": ["node_modules", "dist", "server.js", "server", "webpack.config.js"]
+  "exclude": ["node_modules", "dist", "server.ts", "server", "webpack.config.js"]
 }
