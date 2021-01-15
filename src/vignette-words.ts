@@ -12,10 +12,11 @@ export default class VignetteWords {
 
   private callback: () => void;
 
-  constructor(private readonly canvas: HTMLCanvasElement) {
+  constructor(private readonly canvas: HTMLCanvasElement, callback: () => void) {
     this.ctx = canvas.getContext('2d');
     this.cw = canvas.width;
     this.ch = canvas.height;
+    this.callback = callback;
 
     this.ctx.font = '40px Impact';
     this.ctx.fillStyle = 'black';
@@ -90,6 +91,7 @@ export default class VignetteWords {
       console.log('-----------')
       console.log('ALL DONE!!!')
       console.log('-----------')
+      this.callback();
       return;
     }
 

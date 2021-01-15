@@ -12,10 +12,11 @@ export default class VignetteColors {
 
   private callback: () => void;
 
-  constructor(private readonly canvas: HTMLCanvasElement) {
+  constructor(private readonly canvas: HTMLCanvasElement, callback: () => void) {
     this.ctx = canvas.getContext('2d');
     this.cw = canvas.width;
     this.ch = canvas.height;
+    this.callback = callback;
 
     this.subs = {
       'RED': new SubScene(
@@ -84,6 +85,7 @@ export default class VignetteColors {
       console.log('-----------')
       console.log('ALL DONE!!!')
       console.log('-----------')
+      this.callback();
       return;
     }
 
