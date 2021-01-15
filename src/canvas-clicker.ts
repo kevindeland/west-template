@@ -2,6 +2,8 @@
 import Constants from './Constants';
 import {circle, Position} from './utils';
 
+import SubScene from './sub-scene';
+
 export default class CanvasClicker {
 
   private readonly ctx: CanvasRenderingContext2D;
